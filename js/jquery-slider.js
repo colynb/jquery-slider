@@ -19,68 +19,68 @@
 
 (function(){
 
-	$.widget( "cb.slider", {
-		_create: function() {
-			
-			self = this;
+    $.widget( "cb.slider", {
+        _create: function() {
+            
+            self = this;
 
-			this.element
-				.wrap( "<div class='slider-container'></div>" );
+            this.element
+                .wrap( "<div class='slider-container'></div>" );
 
-			this.element.attr('rel', this.options.slideDirection);
+            this.element.attr('rel', this.options.slideDirection);
 
-			this._items = $('li', this.element);
+            this._items = $('li', this.element);
 
-			this._items.each(function(i,item){
-				$item = $(item);
-				$item.addClass('slider-item')
-				if (i == 0) {
-					$item.addClass('active');
-				}
-			});
-			this._current = 0;
-			this._count = this._items.length;
-			this._run();
-		},
+            this._items.each(function(i,item){
+                $item = $(item);
+                $item.addClass('slider-item')
+                if (i == 0) {
+                    $item.addClass('active');
+                }
+            });
+            this._current = 0;
+            this._count = this._items.length;
+            this._run();
+        },
 
-		_setInterval: function(func, delay, context) {
-			return setInterval(function(){
-				func.call(context)
-			}, delay)
-		},
+        _setInterval: function(func, delay, context) {
+            return setInterval(function(){
+                func.call(context)
+            }, delay)
+        },
 
 
-		_uniqueId: function() {
-			var d = new Date;
-			return d.getTime();
-		},
+        _uniqueId: function() {
+            var d = new Date;
+            return d.getTime();
+        },
 
-		_showSlide: function(i) {
-			this._current = i;
-			if (this.options.slideDirection == 'left') {
-				var opts = {left: -(this.options.width * i)};
-			} else {
-				var opts = {top: -(this.options.height * i)};
-			}
-			this.element.animate(opts, this.options.duration);
-		},
+        _showSlide: function(i) {
+            this._current = i;
+            if (this.options.slideDirection == 'left') {
+                var opts = {left: -(this.options.width * i)};
+            } else {
+                var opts = {top: -(this.options.height * i)};
+            }
+            this.element.animate(opts, this.options.duration);
+        },
 
-		_run: function() {
-			this._interval = this._setInterval(function(){
-				this._rotateSlides();
-			}, this.options.delay, this);
-		},
+        _run: function() {
+            this._interval = this._setInterval(function(){
+                this._rotateSlides();
+            }, this.options.delay, this);
+        },
 
-		_rotateSlides: function() {
-			var next = 0;
+        _rotateSlides: function() {
+            var next = 0;
 
-			if (this._current == this._count - 1) {
-				next = 0;
-			} else {
-				next = this._current + 1;
-			}
-			this._showSlide(next);
-		}
+            if (this._current == this._count - 1) {
+                next = 0;
+            } else {
+                next = this._current + 1;
+            }
+            this._showSlide(next);
+        }
 
-	});
+    });
 })();
