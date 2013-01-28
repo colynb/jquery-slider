@@ -74,9 +74,7 @@
 		},
 
 		_rotateSlides: function() {
-			
-			var $curr = $(this._items[this._current]),
-				next = 0;
+			var next = 0;
 
 			if (this._current == this._count - 1) {
 				next = 0;
