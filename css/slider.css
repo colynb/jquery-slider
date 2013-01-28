@@ -1,0 +1,34 @@
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.slider-container ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+}
+.slider-container ul li.slider-item.active {
+  top: 0px;
+}
+.slider-container ul li.slider-item img {
+  width: auto;
+}
+.slider-container ul li.slider-item .caption {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+.slider-container ul[rel="left"] {
+  width: 9999px;
+}
+.slider-container ul[rel="left"] li.slider-item {
+  float: left !important;
+}
+.slider-container ul[rel="right"] {
+  width: 9999px;
+}

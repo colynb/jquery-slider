@@ -1,0 +1,36 @@
+.slider-container {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	ul {
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+		position: relative;
+		li.slider-item {
+			&.active {
+				top: 0px;
+			}
+			img {
+				width: auto;
+			}
+			.caption {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				padding: 10px;
+				background: rgba(0,0,0, .5);
+				text-align: left;
+			}
+		}
+		&[rel="left"] {
+			width: 9999px;
+			li.slider-item {
+				float: left !important;
+			}
+		}
+		&[rel="right"] {
+			width: 9999px;
+		}
+	}
+}
