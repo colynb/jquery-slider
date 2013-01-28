@@ -59,8 +59,6 @@
 			this._current = i;
 			if (this.options.slideDirection == 'left') {
 				var opts = {left: -(this.options.width * i)};
-			} else if (this.options.slideDirection == 'right') {
-				var opts = {right: -(this.options.width * i)};
 			} else {
 				var opts = {top: -(this.options.height * i)};
 			}
