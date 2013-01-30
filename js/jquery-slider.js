@@ -22,7 +22,7 @@
     $.widget( "cb.slider", {
         _create: function() {
             
-            self = this;
+            var self = this;
 
             this.element
                 .wrap( "<div class='slider-container'></div>" );
@@ -39,7 +39,6 @@
                 }
             });
             this._current = 0;
-            this._count = this._items.length;
             this._run();
         },
 
@@ -47,12 +46,6 @@
             return setInterval(function(){
                 func.call(context)
             }, delay)
-        },
-
-
-        _uniqueId: function() {
-            var d = new Date;
-            return d.getTime();
         },
 
         _showSlide: function(i) {
@@ -74,7 +67,7 @@
         _rotateSlides: function() {
             var next = 0;
 
-            if (this._current == this._count - 1) {
+            if (this._current == this._items.length - 1) {
                 next = 0;
             } else {
                 next = this._current + 1;
