@@ -22,8 +22,6 @@
     $.widget( "cb.slider", {
         _create: function() {
             
-            var self = this;
-
             this.element
                 .wrap( "<div class='slider-container'></div>" );
 
@@ -32,9 +30,9 @@
             this._items = $('li', this.element);
 
             this._items.each(function(i,item){
-                $item = $(item);
-                $item.addClass('slider-item')
-                if (i == 0) {
+                var $item = $(item);
+                $item.addClass('slider-item');
+                if (i === 0) {
                     $item.addClass('active');
                 }
             });
@@ -44,16 +42,17 @@
 
         _setInterval: function(func, delay, context) {
             return setInterval(function(){
-                func.call(context)
-            }, delay)
+                func.call(context);
+            }, delay);
         },
 
         _showSlide: function(i) {
             this._current = i;
+            var opts = null;
             if (this.options.slideDirection == 'left') {
-                var opts = {left: -(this.options.width * i)};
+                opts = {left: -(this.options.width * i)};
             } else {
-                var opts = {top: -(this.options.height * i)};
+                opts = {top: -(this.options.height * i)};
             }
             this.element.animate(opts, this.options.duration);
         },
