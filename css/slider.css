@@ -5,12 +5,16 @@
 }
 .slider-container ul {
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   position: relative;
 }
+.slider-container ul li.slider-item {
+  margin: 0;
+  padding: 0;
+}
 .slider-container ul li.slider-item.active {
-  top: 0px;
+  top: 0;
 }
 .slider-container ul li.slider-item img {
   width: auto;

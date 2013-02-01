@@ -22,8 +22,10 @@
     $.widget( "cb.slider", {
         _create: function() {
             
+            var self = this;
+            
             this.element
-                .wrap( "<div class='slider-container'></div>" );
+                .wrap( "<div class='slider-container' style='height:"+this.options.height+"px;'></div>" );
 
             this.element.attr('rel', this.options.slideDirection);
 
@@ -31,12 +33,12 @@
 
             this._items.each(function(i,item){
                 var $item = $(item);
-                $item.addClass('slider-item');
+                $item.addClass('slider-item').css('height', self.options.height);
                 if (i === 0) {
                     $item.addClass('active');
                 }
             });
-            this._current = 0;
+            this._current = 1;
             this._run();
         },
 
