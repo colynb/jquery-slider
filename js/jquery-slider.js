@@ -38,7 +38,7 @@
                     $item.addClass('active');
                 }
             });
-            this._current = 1;
+            this._current = 0;
             this._run();
         },
 
